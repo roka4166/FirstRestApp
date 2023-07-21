@@ -1,10 +1,14 @@
 package se.roman.FirstRestApp.utils;
 
-public class PersonErrorResponse {
+public class MeasurementErrorResponse {
     private String error;
     private long timestamp;
 
-    public PersonErrorResponse(String error, long timestamp) {
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public MeasurementErrorResponse(String error, long timestamp) {
         this.error = error;
         this.timestamp = timestamp;
     }
@@ -19,9 +23,5 @@ public class PersonErrorResponse {
 
     public long getTimestamp() {
         return timestamp;
-    }
-
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
     }
 }

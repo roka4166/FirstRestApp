@@ -1,10 +1,10 @@
 package se.roman.FirstRestApp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
-import org.hibernate.validator.constraints.Length;
+
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,12 +17,14 @@ public class Sensor {
     @Column(name = "id")
     private int id;
     @Column(name = "name")
-    @NotEmpty(message = "name cannot be empty")
-    @Size(min = 3, max = 30, message = "name should be between 3 and 30 characters")
+    @Size(min = 3, max = 30, message = "sensors name must be between 3 and 30 characters")
+    @NotEmpty(message = "this field cannot be empty")
     private String name;
+
     @Column(name = "created_at")
     private LocalDateTime created_at;
-    @OneToMany(mappedBy = "sensor")
+    @JsonIgnore
+    @OneToMany(mappedBy = "sensor", cascade = CascadeType.ALL)
     private List<Measurement> measurements;
 
     public Sensor() {
