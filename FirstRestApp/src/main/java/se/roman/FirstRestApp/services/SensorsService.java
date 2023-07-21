@@ -14,7 +14,7 @@ import java.util.Optional;
 @Service
 public class SensorsService {
     private final SensorRepository sensorRepository;
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
     @Autowired
     public SensorsService(SensorRepository sensorRepository, ModelMapper modelMapper) {
         this.sensorRepository = sensorRepository;

@@ -10,9 +10,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import se.roman.FirstRestApp.DTO.MeasurementDTO;
 import se.roman.FirstRestApp.DTO.MeasurementResponse;
-import se.roman.FirstRestApp.DTO.SensorDTO;
 import se.roman.FirstRestApp.models.Measurement;
-import se.roman.FirstRestApp.models.Sensor;
 import se.roman.FirstRestApp.services.MeasurementsService;
 import se.roman.FirstRestApp.utils.MeasurementErrorResponse;
 import se.roman.FirstRestApp.utils.MeasurementNotCreatedException;
@@ -65,11 +63,6 @@ public class MeasurementsController {
     public ResponseEntity<MeasurementErrorResponse> error(MeasurementNotCreatedException e){
         return new ResponseEntity<>(new MeasurementErrorResponse("measurement was not created  " + e.getMessage(), System.currentTimeMillis()), HttpStatus.BAD_REQUEST);
     }
-
-    private SensorDTO convertToSensorDTO(Sensor sensor){
-        return modelMapper.map(sensor, SensorDTO.class);
-    }
-
     private Measurement convertToMeasurement(MeasurementDTO measurementDTO){
         return modelMapper.map(measurementDTO, Measurement.class);
     }

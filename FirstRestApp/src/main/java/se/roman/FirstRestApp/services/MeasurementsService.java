@@ -1,29 +1,21 @@
 package se.roman.FirstRestApp.services;
-
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import se.roman.FirstRestApp.DTO.MeasurementDTO;
 import se.roman.FirstRestApp.models.Measurement;
-import se.roman.FirstRestApp.models.Sensor;
 import se.roman.FirstRestApp.repositories.MeasurementRepository;
 import se.roman.FirstRestApp.repositories.SensorRepository;
-
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 @Service
 public class MeasurementsService {
-    private final ModelMapper modelMapper;
    private final MeasurementRepository measurementRepository;
 
    private final SensorRepository sensorRepository;
     @Autowired
-    public MeasurementsService(ModelMapper modelMapper, MeasurementRepository measurementRepository, SensorRepository sensorRepository) {
-        this.modelMapper = modelMapper;
+    public MeasurementsService(MeasurementRepository measurementRepository, SensorRepository sensorRepository) {
         this.measurementRepository = measurementRepository;
         this.sensorRepository = sensorRepository;
     }

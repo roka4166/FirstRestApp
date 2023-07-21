@@ -5,9 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import se.roman.FirstRestApp.DTO.MeasurementDTO;
-import se.roman.FirstRestApp.models.Measurement;
 import se.roman.FirstRestApp.models.Sensor;
-import se.roman.FirstRestApp.repositories.MeasurementRepository;
 import se.roman.FirstRestApp.repositories.SensorRepository;
 
 import java.util.Optional;
@@ -17,7 +15,7 @@ public class MeasurementValidator implements Validator {
 
     private final SensorRepository sensorRepository;
     @Autowired
-    public MeasurementValidator(MeasurementRepository measurementRepository, SensorRepository sensorRepository) {
+    public MeasurementValidator(SensorRepository sensorRepository) {
         this.sensorRepository = sensorRepository;
     }
 

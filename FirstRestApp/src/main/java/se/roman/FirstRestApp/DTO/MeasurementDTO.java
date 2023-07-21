@@ -2,7 +2,6 @@ package se.roman.FirstRestApp.DTO;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-
 import jakarta.validation.constraints.NotNull;
 import se.roman.FirstRestApp.models.Sensor;
 

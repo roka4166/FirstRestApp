@@ -1,7 +1,4 @@
 package se.roman.FirstRestApp.DTO;
-
-import se.roman.FirstRestApp.models.Measurement;
-
 import java.util.List;
 
 public class MeasurementResponse {
